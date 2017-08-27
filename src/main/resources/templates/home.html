@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta name="google-signin-client_id" content="845842379459-hadfqevbp5qoogj7u1cav69k69pvns6c.apps.googleusercontent.com" />
+<head th:replace="fragments/header :: header('SA Taco Radar')"></head>
 
-    <title>SA Taco Radar</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/index.css" />
-    <meta name="description" content="Find the best real mexican taco flavored places in San Antonio, Texas" />
-    <meta name="keywords" content="mexican food, san antonio, tacos, mex, tex-mex, mexico, usa, texas, taquitos" />
-    <div th:replace="partials/header :: header"></div>
-</head>
 <body>
 
-<div th:replace="partials/navbar :: navbar"></div>
+<div th:replace="fragments/navbar :: navbar"></div>
 
 <div>
     <div class="parallax-container">
@@ -42,9 +30,9 @@
 
 </div>
 
-<div th:replace="partials/footer :: footer"></div>
+<div th:replace="fragments/footer :: footer"></div>
 
-<div th:replace="partials/scripts :: scripts"></div>
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>

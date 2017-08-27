@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="navbar" class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper bg-green-flag">
+            <a href="/" class="brand-logo">
+                <img src="/img/taco-icon.png" id="logo"  alt=""/>
+                SA Taco Radar
+            </a>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a id="nearest"  href="/findtaco">
+                        <img id="radar" src="/img/radar.png"/>
+                        <span>Nearest Taco</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="toprated">Top Places for:<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                <li>
+                    <a  href="/contact" >
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <ul id="toprated" class="dropdown-content">
+                <li><a href="/toprated">Tacos</a></li>
+                <li><a href="/top-pozoles">Pozole</a></li>
+                <li class="divider"></li>
+                <li><a href="/top-general">Mexican food in General</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+</body>
+</html>
