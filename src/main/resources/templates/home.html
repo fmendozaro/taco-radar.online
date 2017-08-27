@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="google-signin-client_id" content="845842379459-hadfqevbp5qoogj7u1cav69k69pvns6c.apps.googleusercontent.com" />
+
+    <title>SA Taco Radar</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/index.css" />
+    <meta name="description" content="Find the best real mexican taco flavored places in San Antonio, Texas" />
+    <meta name="keywords" content="mexican food, san antonio, tacos, mex, tex-mex, mexico, usa, texas, taquitos" />
+    <div th:replace="partials/header :: header"></div>
 </head>
 <body>
 
-Tacos!
+<div th:replace="partials/navbar :: navbar"></div>
+
+<div>
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="/img/taco-header.jpg" />
+        </div>
+    </div>
+
+    <div class="section white black-text">
+        <div class="row container">
+            <h1 class="header">Taco Radar</h1>
+            <h3>It's not Tex-Mex it's Mex-Mex</h3>
+            <p>Welcome to the Taco Radar a place where you can find the nearest and finest real mexican flavored tacos in San Antonio, Texas. If you ever wonder how a real taco taste like, you can give it a shot and see for yourself.</p>
+            <div class="g-signin2" data-onsuccess="onSignIn" id="google-sign">Sign in</div>
+        </div>
+    </div>
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="/img/taco-header2.jpg" />
+        </div>
+    </div>
+
+</div>
+
+<div th:replace="partials/footer :: footer"></div>
+
+<div th:replace="partials/scripts :: scripts"></div>
 
 </body>
 </html>
