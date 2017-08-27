@@ -1,0 +1,77 @@
+.content {
+    margin-top: 64px;
+}
+
+.button {
+    color: aliceblue;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    border-radius: 3px;
+    width: 250px;
+    text-align: center;
+    display: block;
+    padding: 7px 0;
+    margin: 10px auto;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background: rgba(7, 23, 37, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    width: 70px;
+    height: 50px;
+    vertical-align: middle;
+    margin: 0 20px;
+}
+
+.bg-green-flag {
+    background-color: #006847;
+}
+
+.bg-red-flag {
+    background-color: #CE1126;
+}
+
+/* Google map */
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+#nearest {
+    position: relative;
+}
+
+#radar {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    top: 11px;
+    left: 8px;
+}
+
+#radar + span{
+    margin-left: 50px;
+}
+
+.content{
+    min-height: 69vh;
+}
+
+.powered-google {
+    width: 200px;
+    height: auto;
+}
