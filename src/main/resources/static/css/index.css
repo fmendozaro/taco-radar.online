@@ -1,5 +1,5 @@
 .content {
-    margin-top: 64px;
+    margin-top: 70px;
 }
 
 .button {
@@ -73,5 +73,14 @@
 
 .powered-google {
     width: 200px;
+    height: auto;
+}
+
+.parallax-container {
+    height: 300px;
+}
+
+#sad {
+    width: 100px;
     height: auto;
 }
