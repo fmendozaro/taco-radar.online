@@ -4,6 +4,7 @@
 - Spring boot
 - MySQL
 - Materialize CSS
+- Thymeleaf
 
 ### API's
 
