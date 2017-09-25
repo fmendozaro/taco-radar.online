@@ -7,8 +7,8 @@ $(document).ready(function(){
             "country": "us"
         }
     };
-    var $autocomplete = $("#autocompleteMap");
-    var autocomplete = new google.maps.places.Autocomplete($autocomplete, autocompleteOptions);
+    var acInput = document.getElementById("autocompleteMap");
+    var autocomplete = new google.maps.places.Autocomplete(acInput, autocompleteOptions);
 
     $("#searchForm").on("submit", function(e){
         e.preventDefault();
@@ -58,10 +58,9 @@ $(document).ready(function(){
         var service = new google.maps.places.PlacesService(map);
         autocomplete.addListener('place_changed', onPlaceChanged);
 
-
         service.nearbySearch({
             location: curLocation,
-            radius: 500,
+            radius: 1000,
             type: ['food']
         }, callback);
     }
@@ -73,7 +72,7 @@ $(document).ready(function(){
             map.setZoom(15);
             search();
         } else {
-            $autocomplete.setPlaceholder("Type the city, address or zip code");
+            acInput.setPlaceholder("Type the city, address or zip code");
         }
     }
 
@@ -127,10 +126,10 @@ $(document).ready(function(){
 
     function createMarker(place) {
 
-        // var photos = place.photos;
-        // if (!photos) {
-        //     return;
-        // }
+        var photos = place.photos;
+        if (!photos) {
+            return;
+        }
 
         var marker = new google.maps.Marker({
             map: map,
@@ -139,42 +138,16 @@ $(document).ready(function(){
             // icon: photos[0].getUrl({'maxWidth': 50, 'maxHeight': 50})
 
         });
+        var photo = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
+        var content = "<strong>" + place.name + "</strong>" +
+            "<br/>" +
+            "<img style='text-align: center' src='" + photo + "' />";
+        console.log(content);
 
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name);
+            infowindow.setContent(content);
             infowindow.open(map, this);
         });
     }
-    //
-    // function initAutocomplete() {
-    //     // Create the autocomplete object, restricting the search to geographical
-    //     // location types.
-    //     autocomplete = new google.maps.places.Autocomplete(
-    //         /** @type {!HTMLInputElement} */(document.getElementById('autocompleteMap')),
-    //         {types: ['geocode']});
-    //
-    //     // When the user selects an address from the dropdown, populate the address
-    //     // fields in the form.
-    //     autocomplete.addListener('place_changed', fillInAddress);
-    // }
-    //
-    // function fillInAddress() {
-    //     // Get the place details from the autocomplete object.
-    //     var place = autocomplete.getPlace();
-    //
-    //     for (var component in componentForm) {
-    //         document.getElementById(component).value = '';
-    //         document.getElementById(component).disabled = false;
-    //     }
-    //
-    //     // Get each component of the address from the place details
-    //     // and fill the corresponding field on the form.
-    //     for (var i = 0; i < place.address_components.length; i++) {
-    //         var addressType = place.address_components[i].types[0];
-    //         if (componentForm[addressType]) {
-    //             var val = place.address_components[i][componentForm[addressType]];
-    //             document.getElementById(addressType).value = val;
-    //         }
-    //     }
-    // }
+
 });
