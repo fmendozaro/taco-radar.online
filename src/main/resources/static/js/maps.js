@@ -72,7 +72,7 @@ $(document).ready(function(){
             map.setZoom(15);
             search();
         } else {
-            acInput.setPlaceholder("Type the city, address or zip code");
+            // acInput.setPlaceholder("Type the city, address or zip code");
         }
     }
 
