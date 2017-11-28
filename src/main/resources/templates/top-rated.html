@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header(title='Top rated places')"></head>
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row">
+        <h4>Top rated places by our users</h4>
+        <div class="divider"></div>
+        <br/>
+        <div class="col s8 offset-s2">
+            Top rated content
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+</body>
+</html>
