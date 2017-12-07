@@ -8,7 +8,7 @@ $(document).ready(function(){
             "country": "us"
         }
     };
-
+    var markers = [];
     var acInput = document.getElementById("autocompleteMap");
     var autocomplete = new google.maps.places.Autocomplete(acInput, autocompleteOptions);
 
@@ -73,6 +73,7 @@ $(document).ready(function(){
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
+            clearMarkers();
             search(place);
         } else {
             // acInput.setPlaceholder("Type the city, address or zip code");
@@ -100,34 +101,42 @@ $(document).ready(function(){
     function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                createMarker(results[i]);
+                addMarker(results[i]);
             }
         }
     }
 
-    function createMarker(place) {
+    function addMarker(place) {
         var photos = place.photos;
+
         if (!photos) {
             return;
         }
+
+        var photo = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
+        var content = "<strong>" + place.name + "</strong>" +
+            "<br/>" +
+            "<img style='text-align: center' src='" + photo + "' />";
 
         var marker = new google.maps.Marker({
             map: map,
             position: place.geometry.location,
             title: place.name,
             // icon: photos[0].getUrl({'maxWidth': 50, 'maxHeight': 50})
-
         });
-        var photo = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
-        var content = "<strong>" + place.name + "</strong>" +
-            "<br/>" +
-            "<img style='text-align: center' src='" + photo + "' />";
-        console.log(content);
-
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent(content);
             infowindow.open(map, this);
         });
+
+
+        markers.push(marker);
+    }
+
+    function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
     }
 
 });
