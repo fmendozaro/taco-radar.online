@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     $('.parallax').parallax();
     $('.tap-target').tapTarget('open');
+    $(".button-collapse").sideNav();
 
     function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
