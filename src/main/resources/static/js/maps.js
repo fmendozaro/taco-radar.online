@@ -112,9 +112,11 @@ $(document).ready(function(){
         }
 
         var photo = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
-        var content = "<strong>" + place.name + "</strong>" +
+        var content = "<h6>" + place.name + "</h6>" +
             "<br/>" +
-            "<img style='text-align: center' src='" + photo + "' />";
+            "<img class='center-align center' src='" + photo + "' /><br/>"+
+            "<button id='btn-review' class='btn bg-green-flag'>Add review</button><br/>" +
+            "<button id='btn-fav' class='btn yellow accent-3'>Add to Favs</button>";
 
         var marker = new google.maps.Marker({
             map: map,
