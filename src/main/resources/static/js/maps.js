@@ -116,7 +116,7 @@ $(document).ready(function(){
             "<br/>" +
             "<img class='center-align center' src='" + photo + "' /><br/>"+
             "<button id='btn-review' class='btn bg-green-flag'>Add review</button><br/>" +
-            "<button id='btn-fav' class='btn yellow accent-4'>Add to Favs</button>";
+            "<button id='btn-fav' class='btn mexican-pink'>Add to Fav</button>";
 
         var marker = new google.maps.Marker({
             map: map,
