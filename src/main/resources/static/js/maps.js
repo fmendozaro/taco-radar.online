@@ -61,11 +61,7 @@ $(document).ready(function(){
 
         autocomplete.addListener('place_changed', onPlaceChanged);
 
-        service.nearbySearch({
-            location: curLocation,
-            radius: 1000,
-            type: ['food']
-        }, callback);
+        search(curLocation);
     }
 
     function onPlaceChanged() {
@@ -74,7 +70,7 @@ $(document).ready(function(){
             map.panTo(place.geometry.location);
             map.setZoom(15);
             clearMarkers();
-            search(place);
+            search(place.geometry.location);
         } else {
             // acInput.setPlaceholder("Type the city, address or zip code");
         }
@@ -82,9 +78,10 @@ $(document).ready(function(){
 
     function search(place) {
         service.nearbySearch({
-            location: place.geometry.location,
+            location: place,
             radius: 1000,
-            type: ['food']
+            type: ['food'],
+            keyword: "mexican"
         }, callback);
 
     }
@@ -99,6 +96,7 @@ $(document).ready(function(){
     }
 
     function callback(results, status) {
+        console.log(results);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 addMarker(results[i]);
