@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $("#wrapper").fadeIn();
+
     var map;
     var infowindow;
     var service;
@@ -48,6 +50,8 @@ $(document).ready(function(){
 
     function initMap(position) {
 
+        $("#wrapper").fadeIn();
+
         var curLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
 
         map = new google.maps.Map(document.getElementById('map'), {
@@ -65,6 +69,7 @@ $(document).ready(function(){
     }
 
     function onPlaceChanged() {
+        $("#wrapper").fadeIn();
         var place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
@@ -96,12 +101,12 @@ $(document).ready(function(){
     }
 
     function callback(results, status) {
-        console.log(results);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 addMarker(results[i]);
             }
         }
+        $("#wrapper").fadeOut();
     }
 
     function addMarker(place) {

@@ -19,5 +19,25 @@ $(document).ready(function(){
         console.log("ID Token: " + id_token);
     };
 
+    $("#show").click( function () {
+        $("#wrapper").fadeIn();
+        $.ajax({
+            url: "http://swapi.co/api/people/?format=json"
+        }).done(function(data){
+            $("#wrapper").fadeOut();
+            $(".alert-success").text("Star wars names loaded");
+            $(".alert-success").removeClass("hide");
+            data.results.forEach(function(element){
+                $("#content").append("<b>Name: </b>"+ element.name + "<br>");
+            });
+        });
+    });
+    //ESC key
+    $(document).keyup(function(e) {
+        //ESC
+        if (e.keyCode === 27){
+            $("#wrapper").fadeOut();
+        }
+    });
 
 });
