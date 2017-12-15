@@ -101,3 +101,8 @@
     background-size: contain;
     background-repeat: repeat-x;
 }
+
+#flag {
+    width: 50%;
+    height: auto;
+}
