@@ -40,4 +40,14 @@ $(document).ready(function(){
         }
     });
 
+    function animateLoadText(){
+        $text = $("#load-text");
+        var dots = '';
+        var interval = setInterval(function() {
+            if ((dots += '.').length == 4)
+               dots = '';
+            $text.html += dots;
+        }, 100);
+    }
+
 });
