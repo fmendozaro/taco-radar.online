@@ -81,7 +81,7 @@
 }
 
 .parallax-container {
-    height: 350px;
+    height: 400px;
 }
 
 .mexican-pink{
@@ -105,4 +105,24 @@
 #flag {
     width: 50%;
     height: auto;
+}
+
+/*mobile*/
+@media screen and (max-width: 479px){
+    .parallax-container{
+        -moz-background-size: auto;
+        -webkit-background-size: auto;
+        background-attachment: scroll;
+        background-position: top;
+        background-size: auto;
+    }
+
+    nav .brand-logo {
+        font-size: 0.9em;
+    }
+
+    #logo {
+        width: 35px;
+        height: 25px;
+    }
 }
