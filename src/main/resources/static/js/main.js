@@ -40,9 +40,9 @@ $(document).ready(function(){
         }
     });
 
-    function animateLoadText(){
-        $text = $("#load-text");
-        var dots = '';
+     function animateLoadText(){
+        $text = $("#load-text").text();
+        var dotsa = '';
         var interval = setInterval(function() {
             if ((dots += '.').length == 4)
                dots = '';

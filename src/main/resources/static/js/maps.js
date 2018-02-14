@@ -74,6 +74,7 @@ $(document).ready(function(){
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
+            map.setMyLocationEnabled(true);
             clearMarkers();
             search(place.geometry.location);
         } else {
