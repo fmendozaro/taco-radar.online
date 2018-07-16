@@ -1,0 +1,16 @@
+{
+  "short_name": "TacoRadar",
+  "name": "Taco Radar",
+  "icons": [
+    {
+      "src": "/img/tr.png",
+      "sizes": "512x512 192x192 144x144 64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#3367D6"
+}

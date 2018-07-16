@@ -50,4 +50,12 @@ $(document).ready(function(){
         }, 100);
     }
 
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('sw.js').then((reg) => {
+            console.log('ServiceWorker registered', reg);
+        }).catch((e) => {
+            console.log('ServiceWorker not registered', e);
+        });
+    }
+
 });
