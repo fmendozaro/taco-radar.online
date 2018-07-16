@@ -13,10 +13,10 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     @Email
     private String email;
 
@@ -36,6 +36,18 @@ public class User {
         this.email = email;
         this.password = password;
         this.favPlaces = favPlaces;
+    }
+
+    public User(User copy) {
+        this.id = copy.id;
+        this.username = copy.username;
+        this.email = copy.email;
+        this.password = copy.password;
+        this.favPlaces = copy.favPlaces;
+    }
+
+    public User() {
+
     }
 
     public long getId() {
