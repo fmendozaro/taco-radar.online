@@ -37,7 +37,7 @@ public class UsersController {
 
     @GetMapping("/users/profile")
     public String showProfile(Model model){
-        model.addAttribute("user", usersRepo.findOne(1L));
+        model.addAttribute("user", usersRepo.getOne(1L));
         return "users/profile";
     }
 }
